@@ -1,0 +1,56 @@
+
+
+@if (activity){
+    @if(prijavio==false){
+        <div>
+            <h2>{{activity.naziv}}</h2>
+            <p>Datum i vreme : {{activity.datum_vreme}}</p>
+            @if(activity.status==1){
+                <p>Status : Aktivna</p>
+            }
+            @else{
+                <p>Status : Neaktivna</p>
+            }
+            
+            <div>
+                <p>Sala 1 : {{activity.sala1}}</p>
+                @if(activity.sala1>=1){
+                    <button (click)="prijavi('Sala1')">Prijavi</button>
+                }
+                @else if(0>=activity.sala1){
+                    <button disabled>Prijavi</button>
+                }
+            </div>
+    
+            <div>
+                <p>Sala 2 : {{activity.sala2}}</p>
+                @if(activity.sala2>=1){
+                    <button (click)="prijavi('Sala2')">Prijavi</button>
+                }
+                @else if(0>=activity.sala2){
+                    <button disabled>Prijavi</button>
+                }
+            </div>
+    
+            <div>
+                <p>Sala 3 : {{activity.sala3}}</p>
+                @if(activity.sala3>=1){
+                    <button (click)="prijavi('Sala3')">Prijavi</button>
+                }
+                @else if(0>=activity.sala3){
+                    <button disabled>Prijavi</button>
+                }
+            </div>
+    
+    
+        </div>
+    }
+    @if(prijavio==true){
+        <h2>{{activity.naziv}}</h2>
+        <p>Datum i vreme : {{activity.datum_vreme}}</p>
+        <div style="background-color: green; color: antiquewhite;">
+            <h3>Prijavljeni ste za ovu aktivnost</h3>
+        </div>
+    }
+    
+}

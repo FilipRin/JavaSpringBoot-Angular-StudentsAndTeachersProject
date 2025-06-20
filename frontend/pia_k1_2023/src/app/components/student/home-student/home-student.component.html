@@ -1,0 +1,19 @@
+
+<div class="container">
+    <h1>Dobrodosli korisnice : {{userData.ime}} {{userData.prezime}} Username : {{userData.korisnickoIme}} | Tip : {{userData.tip}}</h1>
+    <button (click)="logout()">Logout</button>
+</div>
+
+<h2>Aktivne aktivnosti</h2>
+<ul>
+    <!-- Koristimo @for za iteraciju kroz aktivnosti -->
+    @for (activity of activeActivities; track activity.naziv) {
+      <li>
+        <h4>{{ activity.naziv }}</h4>
+        <a [routerLink]="['/activity', activity.id]">Prijavi</a>
+        
+      </li>
+    }
+  </ul>
+  
+ 

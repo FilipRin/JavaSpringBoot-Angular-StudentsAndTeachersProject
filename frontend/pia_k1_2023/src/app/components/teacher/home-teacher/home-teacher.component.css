@@ -1,0 +1,14 @@
+.container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 25%;
+}
+
+.orange{
+    background-color: orange;
+}
+
+.green{
+    background-color: green;
+    color: white;
+}

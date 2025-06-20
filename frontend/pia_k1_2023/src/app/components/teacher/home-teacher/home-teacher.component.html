@@ -1,0 +1,72 @@
+
+<div class="container">
+    <h1>Dobrodosli korisnice : {{userData.ime}} {{userData.prezime}} Username : {{userData.korisnickoIme}} | Tip : {{userData.tip}}</h1>
+    <button (click)="logout()">Logout</button>
+</div>
+
+<div class="container">
+    <h2>Moje aktivnosti</h2>
+    @for(activity of myActivities; track activity.id){
+        <div class="aktivnost" [ngClass]="activity.status===0 ? 'orange' : 'green' ">
+            <h3>{{activity.naziv}}</h3>
+            Status : {{activity.status}}
+            <button (click)="promeniStatus(activity.id)">Promeni status</button>
+            <p>Sala 1 : 
+            @if(0>=activity.sala1){
+                Ne koristi se ova sala
+            }
+            @else{
+                {{activity.sala1}}
+            }
+            </p>
+    
+            <p>Sala 2 : 
+                @if(0>=activity.sala2){
+                    Ne koristi se ova sala
+                }
+                @else{
+                    {{activity.sala2}}
+                }
+            </p>
+    
+            <p>Sala 3 : 
+                @if(0>=activity.sala3){
+                    Ne koristi se ova sala
+                }
+                @else{
+                    {{activity.sala3}}
+                }
+            </p>
+        </div>
+        
+    }
+
+    <hr>
+    <hr>
+    <h2>Napravite novu aktivnost</h2>
+    <form [formGroup]="activityForm" (ngSubmit)="addActivity()">
+        <label for="naziv">Naziv aktivnosti:</label>
+        <input id="naziv" type="text" formControlName="naziv" required />
+        <hr>
+        <label for="datumVreme">Datum i vreme:</label>
+        <input id="datumVreme" type="text" formControlName="datum_vreme" required />
+        <hr>
+        <label>Sale:</label>
+        <div>
+          <input type="checkbox" formControlName="sala1" />
+          Sala1 (5 mesta)
+        </div>
+        <div>
+          <input type="checkbox" formControlName="sala2" />
+          Sala2 (5 mesta)
+        </div>
+        <div>
+          <input type="checkbox" formControlName="sala3" />
+          Sala3 (2 mesta)
+        </div>
+        <hr>
+      
+        <button type="submit">Dodaj</button>
+      </form>
+        
+</div>

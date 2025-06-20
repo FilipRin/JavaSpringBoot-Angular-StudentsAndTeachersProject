@@ -1,0 +1,19 @@
+
+
+<div class="container">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <input type="text" name="korisnickoIme" formControlName="username" placeholder="Unesite korisnicko ime">
+        <input type="password" name="lozinka" formControlName="password" placeholder="Unesite lozinku">
+        <select name="tip" id="tip" formControlName="tip">
+            <option value="student">Student</option>
+            <option value="nastavnik">Nastavnik</option>
+        </select>
+
+        <button type="submit">Submit</button>
+
+    </form>
+    @if(errorMessage){
+        <p>{{errorMessage}}</p>
+    }
+</div>
